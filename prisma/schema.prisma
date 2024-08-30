@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Audience {
+  Public
+  Friends
+  Only
+}
+
+model Post {
+  id       String   @id @default(cuid())
+  audience Audience @default(Public)
+  content  String
+
+  isTrashed Boolean @default(false)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@map("post")
+}

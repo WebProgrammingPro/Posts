@@ -1,0 +1,29 @@
+import Link from "next/link";
+
+import { Separator } from "./ui/separator";
+import { Button } from "./ui/button";
+
+import CreatePost from "./posts/CreatePost";
+
+const Navbar = () => {
+  return (
+    <div className="bg-neutral-100 py-4">
+      <div className="flex container">
+        <div className="flex-1">
+          <Link href={"/"}>Posts</Link>
+        </div>
+        <div className="flex gap-2 flex-none">
+          <Link href={"/recycleBin"}>
+            <Button className="px-0" variant={"link"} size={"sm"}>
+              Recycle Bin
+            </Button>
+          </Link>
+          <Separator orientation="vertical" />
+          <CreatePost />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
