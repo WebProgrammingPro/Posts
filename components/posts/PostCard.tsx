@@ -1,19 +1,32 @@
-import Link from "next/link";
+import { useState } from "react";
 
-import { PostData } from "@/lib/types";
+import { Post } from "@prisma/client";
 
-import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import { Card, CardContent, CardHeader } from "../ui/card";
 
 import HeaderPost from "./HeaderPost";
-import { useState } from "react";
-import { Button } from "../ui/button";
 
 interface PostCardProps {
-  data: PostData;
+  data?: Post;
 }
 
 const PostCard = ({ data }: PostCardProps) => {
   const [isReadMore, setIsReadMore] = useState(true);
+
+  if (!data)
+    return (
+      <div className="relative w-full mb-4 z-0">
+        <div className="relative z-0">
+          <Card>
+            <CardContent className="p-5">
+              <div>
+                <p className="break-all whitespace-pre-wrap">Not Found Post</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
 
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);

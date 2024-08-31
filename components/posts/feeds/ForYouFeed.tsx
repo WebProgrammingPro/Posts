@@ -4,6 +4,7 @@ import useGetPostsQuery from "@/hooks/posts/useGetPostsQuery";
 
 import PostCard from "../PostCard";
 import PostsLoadingSkeleton from "../PostsLoadingSkeleton";
+import NotFoundPost from "./NotFoundPost";
 
 const ForYouFeed = () => {
   const { data, isLoading } = useGetPostsQuery();
@@ -17,9 +18,11 @@ const ForYouFeed = () => {
       </div>
     );
 
-  return data?.length
-    ? data.map((post) => <PostCard key={post.id} data={post} />)
-    : "Not Found";
+  return data?.length ? (
+    data.map((post) => <PostCard key={post.id} data={post} />)
+  ) : (
+    <NotFoundPost />
+  );
 };
 
 export default ForYouFeed;

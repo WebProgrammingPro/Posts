@@ -1,11 +1,12 @@
+import { Post } from "@prisma/client";
+
 import { formatRelativeDate } from "@/lib/utils";
-import { PostData } from "@/lib/types";
 
 import MorePost from "./MorePost";
 import { Badge } from "../ui/badge";
 
 interface HeaderPostProps {
-  data: PostData;
+  data: Post;
 }
 
 const HeaderPost = ({ data }: HeaderPostProps) => {
