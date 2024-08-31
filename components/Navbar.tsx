@@ -13,6 +13,12 @@ const Navbar = () => {
           <Link href={"/"}>Posts</Link>
         </div>
         <div className="flex gap-2 flex-none">
+          <Link href={"/"}>
+            <Button className="px-0" variant={"link"} size={"sm"}>
+              Home
+            </Button>
+          </Link>
+          <Separator orientation="vertical" />
           <Link href={"/recycleBin"}>
             <Button className="px-0" variant={"link"} size={"sm"}>
               Recycle Bin

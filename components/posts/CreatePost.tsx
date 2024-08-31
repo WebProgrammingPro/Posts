@@ -33,9 +33,7 @@ const CreatePost = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="px-0" variant={"link"} size={"sm"}>
-          Created Post
-        </Button>
+        <Button size={"sm"}>Created Post</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[550px]">
         <DialogHeader>
