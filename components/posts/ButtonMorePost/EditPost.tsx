@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { PostData } from "@/lib/types";
+import { Post } from "@prisma/client";
 
 import { FormInputPostValues } from "@/schemas";
 
@@ -23,7 +23,7 @@ import FormPost from "../FormPost";
 import { useEditPostMutation } from "@/hooks/posts/useEditPostMutation";
 
 interface EditPostProps {
-  data: PostData;
+  data: Post;
 }
 
 const EditPost = ({ data }: EditPostProps) => {

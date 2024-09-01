@@ -1,13 +1,13 @@
 import { useDeletePostMutation } from "@/hooks/posts/useDeletePostMutation";
 
-import { PostData } from "@/lib/types";
+import { Post } from "@prisma/client";
 
 import { Trash2 } from "lucide-react";
 
 import ConfirmationCard from "@/components/ConfirmationCard";
 
 interface DeletePostProps {
-  data: PostData;
+  data: Post;
 }
 
 const DeletePost = ({ data }: DeletePostProps) => {

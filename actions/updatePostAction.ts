@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "@/lib/axios";
 
 import { FormInputPostValues } from "@/schemas";
 
@@ -6,7 +6,7 @@ export const updatePostAction = async (
   values: FormInputPostValues,
   postId: string
 ) => {
-  const response = await axios.patch(`/api/posts/${postId}`, values);
+  const response = await axios.patch(`/posts/${postId}`, values);
 
   return response;
 };

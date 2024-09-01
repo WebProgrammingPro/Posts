@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios from "@/lib/axios";
 
 import { FormInputPostValues } from "@/schemas";
 
 export const createPostAction = async (values: FormInputPostValues) => {
-  const response = await axios.post("/api/posts", values);
+  const response = await axios.post("/posts", values);
 
   return response;
 };

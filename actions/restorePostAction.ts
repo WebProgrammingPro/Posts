@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from "@/lib/axios";
 
 export const restorePostAction = async (postId: string) => {
-  const response = await axios.patch(`/api/posts/${postId}/restoreTrash`);
+  const response = await axios.patch(`/posts/${postId}/restoreTrash`);
 
   return response;
 };

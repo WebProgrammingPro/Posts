@@ -1,13 +1,13 @@
 import { useMoveToTrashPostMutation } from "@/hooks/posts/useMoveToTrashPostMutation";
 
-import { PostData } from "@/lib/types";
+import { Post } from "@prisma/client";
 
 import { Trash2 } from "lucide-react";
 
 import ConfirmationCard from "../../ConfirmationCard";
 
 interface MoveToTrashPostProps {
-  data: PostData;
+  data: Post;
 }
 
 const MoveToTrashPost = ({ data }: MoveToTrashPostProps) => {

@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from "@/lib/axios";
 
 export const deletePostAction = async (postId: string) => {
-  const response = await axios.delete(`/api/posts/${postId}`);
+  const response = await axios.delete(`/posts/${postId}`);
 
   return response;
 };

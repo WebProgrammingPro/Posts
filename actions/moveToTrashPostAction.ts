@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from "@/lib/axios";
 
 export const moveToTrashPostAction = async (postId: string) => {
-  const response = await axios.patch(`/api/posts/${postId}/moveToTrash`);
+  const response = await axios.patch(`/posts/${postId}/moveToTrash`);
 
   return response;
 };
