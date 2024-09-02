@@ -22,7 +22,7 @@ export async function PATCH(req: Request, context: contextProps) {
 
     const { audience, content } = validatedFields.data;
 
-    await db.post.update({
+    const editedPost = await db.post.update({
       where: { id: postId },
       data: {
         audience,
@@ -32,7 +32,7 @@ export async function PATCH(req: Request, context: contextProps) {
     });
 
     return Response.json(
-      { message: "Updated Post Successfully" },
+      { message: "Updated Post Successfully", post: editedPost },
       { status: 200 }
     );
   } catch (error) {
@@ -50,10 +50,10 @@ export async function DELETE(req: Request, context: contextProps) {
     if (!postId)
       return Response.json({ message: "Not Post ID" }, { status: 500 });
 
-    await db.post.delete({ where: { id: postId } });
+    const deletedPost = await db.post.delete({ where: { id: postId } });
 
     return Response.json(
-      { message: "Delete Post Successfully" },
+      { message: "Delete Post Successfully", post: deletedPost },
       { status: 200 }
     );
   } catch (error) {
