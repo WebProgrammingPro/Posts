@@ -1,12 +1,18 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { deletePostAction } from "@/actions/deletePostAction";
+import axios from "@/lib/axios";
+
+const deletePostApi = async (id: string) => {
+  const response = await axios.delete(`/posts/${id}`);
+
+  return response;
+};
 
 export function useDeletePostMutation() {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: deletePostAction,
+    mutationFn: deletePostApi,
     onSuccess: async () => {
       queryClient.invalidateQueries({ queryKey: ["postsMove"] });
     },

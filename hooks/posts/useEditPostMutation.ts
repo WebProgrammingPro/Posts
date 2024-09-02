@@ -1,12 +1,20 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { editPostAction } from "@/actions/editPostAction";
+import axios from "@/lib/axios";
+
+import { FormInputPostValues } from "@/schemas";
+
+const editPostApi = async (values: FormInputPostValues) => {
+  const response = await axios.patch(`/posts/${values.id}`, values);
+
+  return response;
+};
 
 export function useEditPostMutation() {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: editPostAction,
+    mutationFn: editPostApi,
     onSuccess: async () => {
       queryClient.invalidateQueries({ queryKey: ["posts"] });
     },

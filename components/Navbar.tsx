@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
@@ -6,6 +9,8 @@ import { Button } from "./ui/button";
 import CreatePost from "./posts/CreatePost";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   return (
     <div className="bg-neutral-100 py-4">
       <div className="flex container">
@@ -24,8 +29,12 @@ const Navbar = () => {
               Recycle Bin
             </Button>
           </Link>
-          <Separator orientation="vertical" />
-          <CreatePost />
+          {pathname === "/" && (
+            <>
+              <Separator orientation="vertical" />
+              <CreatePost />
+            </>
+          )}
         </div>
       </div>
     </div>
