@@ -16,8 +16,8 @@ export async function PATCH(req: Request, context: contextProps) {
     const restoreTrash = await db.post.update({
       where: { id: postId },
       data: {
-        deletedAt: null,
         isTrashed: false,
+        deletedAt: null,
       },
     });
 
